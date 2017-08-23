@@ -1,0 +1,21 @@
+import test from 'ava';
+import './../dist/vertibar';
+
+test('Object deepCopy', (t) => {
+  const origin = {
+    topLevelProp: {
+      nestedObject: {
+        one: 1,
+        collection: [1, 2, [3, 4]],
+      },
+    },
+  };
+
+  const copy = origin.deepCopy();
+  origin.topLevelProp.nestedObject.one = 2;
+  origin.topLevelProp.nestedObject.collection[2][0] = 'abc';
+
+  t.is(copy.topLevelProp.nestedObject.one, 1, 'deep copying object fails');
+  t.is(copy.topLevelProp.nestedObject.collection[2][0], 3, 'deep copying object fails');
+});
+

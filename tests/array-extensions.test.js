@@ -16,3 +16,11 @@ test('array last', (t) => {
   const b = [1, 2, 3];
   t.is(b.last(), b[b.length - 1], 'Array "last" improperly handles NOT empty array');
 });
+
+test('array empty', (t) => {
+  const a = [];
+  t.true(a.empty(), 'Array "empty" is false for an empty array');
+
+  const b = [1, 2, 3];
+  t.false(b.empty(), 'Array "empty" is true for a NOT empty array');
+});

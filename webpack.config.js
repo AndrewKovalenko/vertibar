@@ -1,7 +1,5 @@
-'use strict';
-
 const path = require('path');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -9,18 +7,28 @@ module.exports = {
     filename: 'vertibar.js',
     path: path.resolve(__dirname, 'dist'),
     library: 'v',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
 
   module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015'],
+        },
+      },
+    ],
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
-      }
-    ]
+        loader: 'babel-loader',
+      },
+    ],
   },
 
-  plugins: [new UglifyJSPlugin()]
+  plugins: [new MinifyPlugin()],
 };
+
