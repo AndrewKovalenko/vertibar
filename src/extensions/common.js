@@ -17,7 +17,6 @@ function clone(object) {
   return object;
 }
 
-
 export function deepCopy() {
   return clone(this);
 }
