@@ -45,7 +45,9 @@ So my intention is to extend "native" JS API with methods we often find missing.
 
 ### Array
 `[].first()` - returns first element of an array of `undefined` if array is empty
+
 `[].last()` - returns last element of an array of `undefined` if array is empty
+
 `[].empty()` - returns Bool `true` if array is empty, otherwice returns `false`
 
 ### Object
