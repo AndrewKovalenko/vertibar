@@ -12,23 +12,35 @@ Array.prototype.empty = Array.prototype.empty || function empty() {
   return this && this.length !== 'undefined' && this.length === 0;
 };
 
-Array.prototype.deepCopy = Array.prototype.deepCopy || deepCopy;
+Array.prototype.deepCopy = Array.prototype.deepCopy || function deepCopyArray() {
+  return deepCopy.call(this);
+};
 
 Array.prototype.flatten = Array.prototype.flatten || function flatten() {
-  const result = this.reduce((flatArray, element) => (Array.isArray(element) ?
-    [...flatArray, ...flatten.call(element)] :
-    [...flatArray, element]),
-  []);
+  const result = this.reduce(
+    (flatArray, element) => (Array.isArray(element) ?
+      [...flatArray, ...flatten.call(element)] :
+      [...flatArray, element]),
+    []
+  );
 
   return result;
 };
 
-Array.prototype.head = Array.prototype.head || Array.prototype.first;
+if (typeof Array.prototype.head === 'undefined') {
+  Object.defineProperty(Array.prototype, 'head', {
+    get: Array.prototype.first
+  });
+}
 
-Array.prototype.tail = Array.prototype.tail || function tail() {
-  if (this.empty()) {
-    return undefined;
-  }
+if (typeof Array.prototype.tail === 'undefined') {
+  Object.defineProperty(Array.prototype, 'tail', {
+    get: function tail() {
+      if (this.empty()) {
+        return [];
+      }
 
-  return this.slice(1);
-};
+      return this.slice(1);
+    }
+  });
+}
