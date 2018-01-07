@@ -35,7 +35,9 @@ Minimalistic JavaScript utils library intended to replace *underscore* / *lodash
 
 ## Why?
 
-Most methods *underscore* provide already implemented natively in ES5 / ES6. As for those methods which are still missing in "native" JS API - *underscore* / *lodash* still provides an ugly API. For example, which code does look better: `const lone = _.clone(obj)` or `const clone = obj.deepCopy()`?
+Most methods people usually use from *underscore* or *lodash* already implemented natively in ES5 / ES6, but lots of developers keep pulling those monsters increasing size of their output bundles, polluting their code with purely readable `_` characters and slowing down their project srarting time. 
+
+  As for those methods which are still missing in "native" JS API - *underscore* / *lodash* provides pretty ugly API. For example, which code does look better / more readable: `const lone = _.clone(obj)` or `const clone = obj.deepCopy()`?
 
 So my intention is to extend "native" JS API with methods we often find missing. 
 
