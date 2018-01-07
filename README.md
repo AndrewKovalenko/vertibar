@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/AndrewKovalenko/vertibar.svg?branch=master)](https://travis-ci.org/AndrewKovalenko/vertibar)
+[![Coverage Status](https://coveralls.io/repos/github/AndrewKovalenko/vertibar/badge.svg?branch=master)](https://coveralls.io/github/AndrewKovalenko/vertibar?branch=master)
 
 <pre>
                           oooo$$$$$$$$$$$$oooo
