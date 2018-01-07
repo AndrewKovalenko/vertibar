@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/AndrewKovalenko/vertibar.svg?branch=test%2Fincrease-unit-tests-coverage)](https://travis-ci.org/AndrewKovalenko/vertibar)
+
 <pre>
                           oooo$$$$$$$$$$$$oooo
                       oo$$$$$$$$$$$$$$$$$$$$$$$$o
@@ -26,8 +29,6 @@ oo $ $ "$      o$$$$$$$$$    $$$$$$$$$$$$$    $$$$$$$$$o       $$$o$$o$
                                      $$$$$$$$$$"
                                       "$$$""""
 </pre>
-
-[![Build Status](https://travis-ci.org/AndrewKovalenko/vertibar.svg?branch=test%2Fincrease-unit-tests-coverage)](https://travis-ci.org/AndrewKovalenko/vertibar)
 
 # vertibar
 Minimalistic JavaScript utils library intended to replace *underscore* / *lodash*.
