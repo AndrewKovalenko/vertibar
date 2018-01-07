@@ -1,10 +1,10 @@
 import test from 'ava';
-import './../dist/vertibar';
+import '../src';
 
 test('isURI', (t) => {
-  const a = [];
-  t.is(a.first(), undefined, 'Array "first" improperly handles empty array');
+  const URI = 'https://github.com/AndrewKovalenko/vertibar';
+  const infalidUri = 'unknown:/w/hatever?qwe=%%%';
 
-  const b = [1, 2, 3];
-  t.is(b.first(), b[0], 'Array "first" improperly handles NOT empty array');
+  t.true(URI.isURI(), 'String isURI returns "false" for correct URI');
+  t.false(infalidUri.isURI(), 'String isURI returns "true" for incorrect URI');
 });
