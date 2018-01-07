@@ -1,5 +1,4 @@
-
-[![Build Status](https://travis-ci.org/AndrewKovalenko/vertibar.svg?branch=test%2Fincrease-unit-tests-coverage)](https://travis-ci.org/AndrewKovalenko/vertibar)
+[![Build Status](https://travis-ci.org/AndrewKovalenko/vertibar.svg?branch=master)](https://travis-ci.org/AndrewKovalenko/vertibar)
 
 <pre>
                           oooo$$$$$$$$$$$$oooo
