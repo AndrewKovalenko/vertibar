@@ -27,7 +27,7 @@ Most methods *underscore* provide already implemented natively in ES5 / ES6. As 
 So my intention is to extend "native" JS API with methods we often find missing. 
 
 
-## API
+## Documentation
 
 ### String
 
@@ -40,6 +40,13 @@ So my intention is to extend "native" JS API with methods we often find missing.
 
 `[].empty()` - returns Bool `true` if array is empty, otherwice returns `false`
 
-`[].deepCopy()` - returns a eep copy](https://en.wikipedia.org/wiki/Object_copying) of an arra
-## Object
+`[].deepCopy()` - returns a [deep copy](https://en.wikipedia.org/wiki/Object_copying) of an array
+
+`[].flatten()` - flattens an array. **Example:** `[1, [2, 3, [4, 5] ] ].flatten(); // [1, 2, 3, 4, 5]` 
+
+`[].head` - is a property implementing *head of collection concept* from functional programming. Returns the first element of an array
+
+`[].tail` - is a property implementing *tail of collection concept* from functional programming. Returns all but first elements from an array
+
+### Object
 `<anyObject>.deepCopy()` - returns a [deep copy](https://en.wikipedia.org/wiki/Object_copying) of an object.
