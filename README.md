@@ -49,19 +49,21 @@ So my intention is to extend "native" JS API with methods we often find missing.
 `<string>.isURI()` - returns Bool `true` if string is a valid URI
 
 ### Array
-`[].first()` - returns first element of an array of `undefined` if array is empty
+`<array>.first` - is a readonly property which returns first element of an array or `undefined` if array is empty
 
-`[].last()` - returns last element of an array of `undefined` if array is empty
+`<array>.last` - is a readonly property which returns last element of an array or `undefined` if array is empty
 
-`[].empty()` - returns Bool `true` if array is empty, otherwice returns `false`
+`<array>.empty()` - returns Bool `true` if array is empty, otherwice returns `false`
 
-`[].deepCopy()` - returns a [deep copy](https://en.wikipedia.org/wiki/Object_copying) of an array
+`<array>.deepCopy()` - returns a [deep copy](https://en.wikipedia.org/wiki/Object_copying) of an array
 
-`[].flatten()` - flattens an array. **Example:** `[1, [2, 3, [4, 5] ] ].flatten(); // [1, 2, 3, 4, 5]` 
+`<array>.flatten()` - flattens an array. **Example:** `[1, [2, 3, [4, 5] ] ].flatten(); // [1, 2, 3, 4, 5]` 
 
-`[].head` - is a property implementing *head of collection concept* from functional programming. Returns the first element of an array
+`<array>.head` - is a readonly property implementing *head of collection concept* from functional programming. Returns the first element of an array
 
-`[].tail` - is a property implementing *tail of collection concept* from functional programming. Returns all but first elements from an array
+`<array>.tail` - is a readonly property implementing *tail of collection concept* from functional programming. Returns all but first elements from an array
 
 ### Object
-`<anyObject>.deepCopy()` - returns a [deep copy](https://en.wikipedia.org/wiki/Object_copying) of an object.
+`<anyObject>.deepCopy()` - returns a [deep copy](https://en.wikipedia.org/wiki/Object_copying) of an object
+
+`Object.isUndefined(instance)` - a "static" method. Returns Bool `true` if `instance` is `undefined`
