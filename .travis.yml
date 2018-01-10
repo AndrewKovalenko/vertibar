@@ -3,3 +3,8 @@ install: npm install
 script: npm run lint && npm test && npm run build 
 after_script:
   - "cat ./test-coverage/lcov.info | ./node_modules/.bin/coveralls"
+
+notifications:
+  email:
+    on_success: never 
+    on_failure: always 
