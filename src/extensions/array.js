@@ -1,12 +1,20 @@
 import { deepCopy } from './common';
 
-Array.prototype.first = Array.prototype.first || function first() {
-  return this && this[0];
-};
+if (typeof Array.prototype.first === 'undefined') {
+  Object.defineProperty(Array.prototype, 'first', {
+    get:  function first() {
+      return this && this[0];
+    }
+  });
+}
 
-Array.prototype.last = Array.prototype.last || function last() {
-  return this && typeof this.length !== 'undefined' && this[this.length - 1];
-};
+if (typeof Array.prototype.last === 'undefined') {
+  Object.defineProperty(Array.prototype, 'last', {
+    get: function last() {
+      return this && typeof this.length !== 'undefined' && this[this.length - 1];
+    }
+  });
+}
 
 Array.prototype.empty = Array.prototype.empty || function empty() {
   return this && this.length !== 'undefined' && this.length === 0;
@@ -29,7 +37,7 @@ Array.prototype.flatten = Array.prototype.flatten || function flatten() {
 
 if (typeof Array.prototype.head === 'undefined') {
   Object.defineProperty(Array.prototype, 'head', {
-    get: Array.prototype.first
+    get: function head() { return this.first; }
   });
 }
 

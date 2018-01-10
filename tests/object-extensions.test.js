@@ -21,3 +21,9 @@ test('Object deepCopy', (t) => {
   t.is(copy.topLevelProp.nestedObject.collection[2][0], 3, 'deep copying object fails');
 });
 
+test('Object isUndefined static method', (t) => {
+  t.true(Object.isUndefined(undefined));
+  t.false(Object.isUndefined(null));
+  t.false(Object.isUndefined({}));
+});
+
