@@ -1,7 +1,7 @@
 {
   "name": "vertibar",
   "version": "0.0.1",
-  "description": "JS utils library with a human face",
+  "description": "Minimalistic JS utils library with a human face",
   "scripts": {
     "lint": "eslint ./src && eslint ./tests",
     "clean": "rm -rf dist",
@@ -16,6 +16,17 @@
     "install": "npm build",
     "run-dev": "webpack --progress --colors --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndrewKovalenko/vertibar.git"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "keywords": [
+    "utils", "array extensions", "tail", "head", "deepCopy"
+  ],
+  "engine": "node >= 6.9.2",
   "ava": {
     "require": "babel-register",
     "failFast": true,
