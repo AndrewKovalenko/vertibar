@@ -35,11 +35,11 @@ Minimalistic JavaScript utils library intended to replace *underscore* / *lodash
 
 ## Why?
 
-Most methods people usually use from *underscore* or *lodash* already implemented natively in ES5 / ES6, but lots of developers keep pulling those monsters increasing size of their output bundles, polluting their code with purely readable `_` characters and slowing down their project srarting time. 
+Most methods people usually use from *underscore* or *lodash* already implemented natively in ES5 / ES6, but lots of developers keep pulling those monsters increasing size of their output bundles, polluting their code with purely readable `_` characters and slowing down their project srarting time.
 
   As for those methods which are still missing in "native" JS API - *underscore* / *lodash* provides pretty ugly API. For example, which code does look better / more readable: `const lone = _.clone(obj)` or `const clone = obj.deepCopy()`?
 
-So my intention is to extend "native" JS API with methods we often find missing. 
+So my intention is to extend "native" JS API with methods we often find missing.
 
 
 ## Documentation
@@ -57,7 +57,7 @@ So my intention is to extend "native" JS API with methods we often find missing.
 
 `<array>.deepCopy()` - returns a [deep copy](https://en.wikipedia.org/wiki/Object_copying) of an array
 
-`<array>.flatten()` - flattens an array. **Example:** `[1, [2, 3, [4, 5] ] ].flatten(); // [1, 2, 3, 4, 5]` 
+`<array>.flatten()` - flattens an array. **Example:** `[1, [2, 3, [4, 5] ] ].flatten(); // [1, 2, 3, 4, 5]`
 
 `<array>.head` - is a readonly property implementing *head of collection concept* from functional programming. Returns the first element of an array
 
@@ -67,3 +67,6 @@ So my intention is to extend "native" JS API with methods we often find missing.
 `<anyObject>.deepCopy()` - returns a [deep copy](https://en.wikipedia.org/wiki/Object_copying) of an object
 
 `Object.isUndefined(instance)` - a "static" method. Returns Bool `true` if `instance` is `undefined`
+
+### Math
+`Math.roundTo(number, decimals)` - rounds float point number to specified decimals using common mathematical rounding rules

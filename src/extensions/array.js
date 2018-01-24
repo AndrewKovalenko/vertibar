@@ -2,7 +2,7 @@ import { deepCopy } from './common';
 
 if (typeof Array.prototype.first === 'undefined') {
   Object.defineProperty(Array.prototype, 'first', {
-    get:  function first() {
+    get: function first() {
       return this && this[0];
     }
   });
