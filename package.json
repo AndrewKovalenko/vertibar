@@ -1,6 +1,6 @@
 {
   "name": "vertibar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Minimalistic JS utils library with a human face",
   "scripts": {
     "lint": "eslint ./src && eslint ./tests",
@@ -24,7 +24,9 @@
     "dist/**/*"
   ],
   "keywords": [
-    "utils", "array extensions", "tail", "head", "deepCopy"
+    "utils", "array extensions",
+    "object extensions", "tail", "head",
+    "deepCopy"
   ],
   "engine": "node >= 6.9.2",
   "ava": {
@@ -79,8 +81,8 @@
     "all": true,
     "report-dir": "./test-coverage"
   },
-  "main": "dist/umd/index.js",
-  "module": "dist/module/index.js",
+  "main": "./dist/umd/vertibar.js",
+  "module": "./dist/module/index.js",
   "author": "Andrew Kovalenko",
   "license": "MIT"
 }

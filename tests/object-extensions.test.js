@@ -26,4 +26,3 @@ test('Object isUndefined static method', (t) => {
   t.false(Object.isUndefined(null));
   t.false(Object.isUndefined({}));
 });
-
