@@ -15,3 +15,6 @@ deploy:
   tag: next
   api_key:
     secure: hX/jkrMDtNcC4udGMCe2bVBo5oBRyQlcW+2SC7vRRmjFO0iUEitf7+47lAjr9+a2oKfRS6x+oczh6plHBqfF9pV2Dx+3w7GmKiunTNbKYIcOUNW+mVwwXULxQbsyomf155gOsXe30r45S6DJ2D7lBbwYqDZIZVCT3ZW1HWL6NmXjNEBVwJW98w89DNpNISWKndwc1LgqHBtmVqBkdbY43ndNylulGUS4jdao47HQThFS7EkHSLQSDnVf64WapZp/q6knFP3wmOJpetUxikfSlarh86jwZhtLON05I8JufHJZHKoO/MG0LpQVmSm0bQ9tLDxmOm+z250rl/aKlbXGwBoT/o/G48sp6jFDPJCDDoYW7blMywraEszHJSWii0yZw9Vl4DvzPhMmskxIKIIKjm+VOVqfHRfByjQXPMwAknFYTKGxOdM56KnYchnKforaeJ76AvnDrQgID2ZUH1IgJbv+iIZaAXTSv+0EbqNeZH6C+M/16SJJfNBUq1zlD7tqgrLq9dZvPyAnGSSF3vfKWxwAHbm2j6RiiKCOK+KNbTDDyHdn61JHdnvplce8x+XIFe8fs8swVZ5PhfstpLYuv0p5mKXsyQh7JREkbEey8RfwEx1pjqSzmCLMFCS1WvhgNFt+Erd9vVzrazDk9aC4m7Nmh18nG86rGXw7atgE++E=
+after_deploy:
+  git add . --all && git commit -am "release" && git push origin master --tags
+
