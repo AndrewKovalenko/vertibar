@@ -63,6 +63,8 @@ So my intention is to extend "native" JS API with methods we often find missing.
 
 `<array>.tail` - is a readonly property implementing *tail of collection concept* from functional programming. Returns all but first elements from an array
 
+`<array>.dedup([optionalCondition])` - is a readonly property implementing *tail of collection concept* from functional programming. Returns all but first elements from an array
+
 ### Object
 `<anyObject>.deepCopy()` - returns a [deep copy](https://en.wikipedia.org/wiki/Object_copying) of an object
 
