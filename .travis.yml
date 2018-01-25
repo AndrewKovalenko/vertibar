@@ -8,6 +8,7 @@ notifications:
     on_success: never
     on_failure: always
 deploy:
+  skip_cleanup: true
   provider: npm
   email: mr.kovalenko.a.o@gmail.com
   on:
