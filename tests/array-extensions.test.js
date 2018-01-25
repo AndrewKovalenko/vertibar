@@ -72,6 +72,35 @@ test('array tail', (t) => {
   t.is([].tail.length, 0, 'tail of an empty array is an empty array');
 });
 
+test('Array dedup', (t) => {
+  const collectionWithDuplicates = ['1', 2, 1, 3, 5, 9, 2];
+  const dedupCollection = collectionWithDuplicates.dedup();
+  const expectedResult = ['1', 2, 1, 3, 5, 9];
+
+  t.is(dedupCollection.length, expectedResult.length, 'duplicated elements were left by Array dedup');
+  dedupCollection.forEach((element, index) =>
+    t.is(element, expectedResult[index], 'deduplicated array does not match to expected result'));
+
+  const noDuplicatesCollection = [1, '2', 3, '4', '5', false];
+  const shouldBeTheSame = noDuplicatesCollection.dedup();
+
+  t.is(noDuplicatesCollection.length, shouldBeTheSame.length, 'duplicated elements were left by Array dedup');
+  shouldBeTheSame.forEach((element, index) =>
+    t.is(element, noDuplicatesCollection[index], 'deduplicated array does not match to expected result'));
+});
+
+test('Array dedup by custom condition', (t) => {
+  const collectionWithDuplicates = ['1', 2, 1, 3, 5, 9, 2];
+  const dedupCollection = collectionWithDuplicates.dedup(
+    (element1, element2) => element1.toString() === element2.toString()
+  );
+  const expectedResult = ['1', 2, 3, 5, 9];
+
+  t.is(dedupCollection.length, expectedResult.length, 'duplicated elements were left by Array dedup');
+  dedupCollection.forEach((element, index) =>
+    t.is(element, expectedResult[index], 'deduplicated array does not match to expected result'));
+});
+
 test.after(() => {
   common.deepCopy.restore();
 });

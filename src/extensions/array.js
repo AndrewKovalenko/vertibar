@@ -35,6 +35,30 @@ Array.prototype.flatten = Array.prototype.flatten || function flatten() {
   return result;
 };
 
+Array.prototype.dedup = Array.prototype.dedup || function dedup(criteria) {
+  if (!criteria) {
+    return this.filter((element, index) => this.indexOf(element) === index);
+  }
+
+  // NOTE: ugly but optimal
+  const result = [];
+  for (let i = 0; i < this.length; i++) {
+    let duplicatesFound = false;
+    for (let j = 0; j < i; j++) {
+      if (criteria(this[i], this[j])) {
+        duplicatesFound = true;
+        break;
+      }
+    }
+
+    if (!duplicatesFound) {
+      result.push(this[i]);
+    }
+  }
+
+  return result;
+};
+
 if (typeof Array.prototype.head === 'undefined') {
   Object.defineProperty(Array.prototype, 'head', {
     get: function head() { return this.first; }
