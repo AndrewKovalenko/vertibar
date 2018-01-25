@@ -63,6 +63,14 @@ So my intention is to extend "native" JS API with methods we often find missing.
 
 `<array>.tail` - is a readonly property implementing *tail of collection concept* from functional programming. Returns all but first elements from an array
 
+`<array>.dedup([optionalCondition])` - returns array with no duplicated elements, if there where any.
+  This function uses *strict equal* to compare elements by default. If custom *equal* condition needs to be used - a "condition" function may be passed as a parameter.
+
+  This method expects optional condition function to have format:
+  ```
+  (element1, element2) => <return true for duplicated elements>
+  ```
+
 ### Object
 `<anyObject>.deepCopy()` - returns a [deep copy](https://en.wikipedia.org/wiki/Object_copying) of an object
 
