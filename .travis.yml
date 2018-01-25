@@ -7,7 +7,7 @@ notifications:
   email:
     on_success: never
     on_failure: always
-before_deploy: npm version patch
+before_deploy: npm version patch && git add . --all && git commit -am "bump up patch version"
 deploy:
   skip_cleanup: true
   provider: npm
