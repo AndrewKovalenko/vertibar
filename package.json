@@ -12,7 +12,7 @@
     "dev": "webpack --progress --colors --watch",
     "test": "nyc ava",
     "prepublishOnly": "npm run build && standard-version",
-    "postpublish": "git push --follow-tags --set-upstream origin ${branch}",
+    "postpublish": "git push --follow-tags --set-upstream origin master",
     "install": "npm build",
     "run-dev": "webpack --progress --colors --watch"
   },
