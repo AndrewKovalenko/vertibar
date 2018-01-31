@@ -46,7 +46,7 @@ test('Function debounce', async (t) => {
   t.true(mockFunction.calledOn(mockContext));
 });
 
-test('Function debounce uses caller context by default', async (t) => {
+test('Function debounce uses initial caller context by default', async (t) => {
   const mockFunction = spy();
   const mockContext = {};
   const mockCallArguments = [1, 2, 3];
@@ -59,6 +59,14 @@ test('Function debounce uses caller context by default', async (t) => {
   t.true(mockFunction.calledOn(mockFunction));
 });
 
+test('Function debounce uses initial caller context by default', async (t) => {
+  const mockFunction = spy();
+  const error = t.throws(() => {
+    mockFunction.debounce();
+  }, Error);
+
+  t.is(error.message, 'Missing debounce waiting period.');
+});
 
 test.after(() => {
   fakeClock.restore();

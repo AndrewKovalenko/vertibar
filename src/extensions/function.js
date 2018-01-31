@@ -1,5 +1,9 @@
 Function.prototype.debounce =
   Function.prototype.debounce || function debounce(wait, context) {
+    if (typeof wait === 'undefined') {
+      throw new Error('Missing debounce waiting period.');
+    }
+
     let timeoutId;
     const self = this;
 
