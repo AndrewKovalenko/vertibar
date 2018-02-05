@@ -13,7 +13,8 @@ test.before(() => {
   fakeClock = useFakeTimers();
 });
 
-const makeCalls = async (mockFunction, mockCallArguments, callRepeatingIntervals) => {
+
+const makeCalls = async (mockFunction, mockCallArguments) => {
   const result = new Promise((resolve) => {
     let callsAttempts = 0;
 
@@ -26,7 +27,7 @@ const makeCalls = async (mockFunction, mockCallArguments, callRepeatingIntervals
         fakeClock.tick(THROTTLE_DELAY + LITTLE_BIT_LATER);
         resolve();
       }
-    }, callRepeatingIntervals);
+    }, CALL_REPEATING_INTERVAL);
   });
 
   fakeClock.tick((NUMBER_OF_DESIRED_CALLS * CALL_REPEATING_INTERVAL) + LITTLE_BIT_LATER);
@@ -38,8 +39,9 @@ test('Function debounce', async (t) => {
   const mockFunction = spy();
   const mockContext = {};
   const mockCallArguments = [1, 2, 3];
-  const debouncedMock = mockFunction.debounce(THROTTLE_DELAY, mockContext);
-  await makeCalls(debouncedMock, mockCallArguments, CALL_REPEATING_INTERVAL);
+
+  const throtteledMock = mockFunction.debounce(THROTTLE_DELAY, mockContext);
+  await makeCalls(throtteledMock, mockCallArguments);
 
   t.true(mockFunction.calledOnce);
   t.true(mockFunction.calledWith(...mockCallArguments));
@@ -50,9 +52,10 @@ test('Function debounce uses initial caller context by default', async (t) => {
   const mockFunction = spy();
   const mockContext = {};
   const mockCallArguments = [1, 2, 3];
-  const debouncedMock = mockFunction.debounce(THROTTLE_DELAY);
+
+  const throtteledMock = mockFunction.debounce(THROTTLE_DELAY);
   const artificialContextCall = makeCalls.bind(mockContext);
-  await artificialContextCall(debouncedMock, mockCallArguments, CALL_REPEATING_INTERVAL);
+  await artificialContextCall(throtteledMock, mockCallArguments);
 
   t.true(mockFunction.calledOnce);
   t.true(mockFunction.calledWith(...mockCallArguments));
@@ -67,6 +70,7 @@ test('Function debounce throws an error if there is no waiting parameter passed'
 
   t.is(error.message, 'Missing debounce waiting period.');
 });
+
 
 test('Function throttle', async (t) => {
   const mockFunction = spy();
