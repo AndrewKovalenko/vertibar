@@ -1,6 +1,6 @@
 {
   "name": "vertibar",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Minimalistic JS utils library with a human face",
   "scripts": {
     "lint": "eslint ./src && eslint ./tests",
@@ -29,7 +29,9 @@
     "object extensions",
     "tail",
     "head",
-    "deepCopy"
+    "deepCopy",
+    "throttle",
+    "debounce"
   ],
   "engine": "node >= 6.9.2",
   "ava": {
