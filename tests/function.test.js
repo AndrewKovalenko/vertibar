@@ -101,7 +101,7 @@ test('Function throttle throws an error if there is no waiting parameter passed'
     mockFunction.throttle();
   }, Error);
 
-  t.is(error.message, 'Missing throttle waiting period.');
+  t.is(error.message, 'Missing throttle rate.');
 });
 
 test.after(() => {
