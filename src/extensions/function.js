@@ -18,9 +18,9 @@ Function.prototype.debounce =
   };
 
 Function.prototype.throttle =
-  Function.prototype.throttle || function throttle(wait, context) {
-    if (typeof wait === 'undefined') {
-      throw new Error('Missing debounce waiting period.');
+  Function.prototype.throttle || function throttle(rate, context) {
+    if (typeof rate === 'undefined') {
+      throw new Error('Missing throttle rate.');
     }
 
     let throttled;
@@ -31,7 +31,8 @@ Function.prototype.throttle =
 
       if (!throttled) {
         self.apply(callContext, callArguments);
-        setTimeout(() => { throttled = false; }, wait);
+        throttled = true;
+        setTimeout(() => { throttled = false; }, rate);
       }
     };
   };

@@ -13,6 +13,7 @@ test.before(() => {
   fakeClock = useFakeTimers();
 });
 
+
 const makeCalls = async (mockFunction, mockCallArguments) => {
   const result = new Promise((resolve) => {
     let callsAttempts = 0;
@@ -38,6 +39,7 @@ test('Function debounce', async (t) => {
   const mockFunction = spy();
   const mockContext = {};
   const mockCallArguments = [1, 2, 3];
+
   const throtteledMock = mockFunction.debounce(THROTTLE_DELAY, mockContext);
   await makeCalls(throtteledMock, mockCallArguments);
 
@@ -50,6 +52,7 @@ test('Function debounce uses initial caller context by default', async (t) => {
   const mockFunction = spy();
   const mockContext = {};
   const mockCallArguments = [1, 2, 3];
+
   const throtteledMock = mockFunction.debounce(THROTTLE_DELAY);
   const artificialContextCall = makeCalls.bind(mockContext);
   await artificialContextCall(throtteledMock, mockCallArguments);
@@ -59,13 +62,50 @@ test('Function debounce uses initial caller context by default', async (t) => {
   t.true(mockFunction.calledOn(mockFunction));
 });
 
-test('Function debounce uses initial caller context by default', async (t) => {
+test('Function debounce throws an error if there is no waiting parameter passed', async (t) => {
   const mockFunction = spy();
   const error = t.throws(() => {
     mockFunction.debounce();
   }, Error);
 
   t.is(error.message, 'Missing debounce waiting period.');
+});
+
+
+test('Function throttle', async (t) => {
+  const mockFunction = spy();
+  const mockContext = {};
+  const mockCallArguments = [1, 2, 3];
+  const DELAY_FOR_TWO_CALLS = THROTTLE_DELAY / 2;
+  const throttleMock = mockFunction.throttle(DELAY_FOR_TWO_CALLS, mockContext);
+  await makeCalls(throttleMock, mockCallArguments, CALL_REPEATING_INTERVAL);
+
+  t.is(mockFunction.callCount, 2, 'Function was not throtteled as expected');
+  t.true(mockFunction.calledWith(...mockCallArguments));
+  t.true(mockFunction.calledOn(mockContext));
+});
+
+
+test('Function throttle uses initial caller context by default', async (t) => {
+  const mockFunction = spy();
+  const mockContext = {};
+  const mockCallArguments = [1, 2, 3];
+  const throttleMock = mockFunction.throttle(THROTTLE_DELAY);
+  const artificialContextCall = makeCalls.bind(mockContext);
+  await artificialContextCall(throttleMock, mockCallArguments, CALL_REPEATING_INTERVAL);
+
+  t.true(mockFunction.calledOnce);
+  t.true(mockFunction.calledWith(...mockCallArguments));
+  t.true(mockFunction.calledOn(mockFunction));
+});
+
+test('Function throttle throws an error if there is no waiting parameter passed', async (t) => {
+  const mockFunction = spy();
+  const error = t.throws(() => {
+    mockFunction.throttle();
+  }, Error);
+
+  t.is(error.message, 'Missing throttle rate.');
 });
 
 test.after(() => {
