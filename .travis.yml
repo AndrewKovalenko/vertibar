@@ -15,5 +15,5 @@ deploy:
   email: mr.kovalenko.a.o@gmail.com
   on:
     branch: master
-  tag: next
+  tag: latest
   api_key: $NPM_TOKEN
