@@ -1,6 +1,6 @@
 {
   "name": "vertibar",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "Minimalistic JS utils library with a human face",
   "scripts": {
     "lint": "eslint ./src && eslint ./tests",
