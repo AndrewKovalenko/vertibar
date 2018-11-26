@@ -47,6 +47,7 @@ So my intention is to extend "native" JS API with methods we often find missing.
 ### String
 
 `<string>.isURI()` - returns Bool `true` if string is a valid URI
+`<string>.capitalize()` - returns a *new* capitalized string ("hello world".capitalize() => "Hello world")
 
 ### Array
 `<array>.first` - is a readonly property which returns first element of an array or `undefined` if array is empty
