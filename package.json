@@ -11,8 +11,7 @@
     "build": "npm-run-all clean build:*",
     "dev": "webpack --progress --colors --watch",
     "test": "nyc ava",
-    "prepublishOnly": "npm run build && standard-version",
-    "postpublish": "git remote add origin-pages https://${GITHUB_TOKEN}@github.com/AndrewKovalenko/vertibar.git > /dev/null 2>&1 && git push --tags --set-upstream origin-pages master",
+    "postbuild": "standard-version && git remote add origin-pages https://${GITHUB_TOKEN}@github.com/AndrewKovalenko/vertibar.git > /dev/null 2>&1 && git push --tags --set-upstream origin-pages master",
     "install": "npm build",
     "run-dev": "webpack --progress --colors --watch"
   },
